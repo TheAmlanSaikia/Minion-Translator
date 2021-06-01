@@ -1,0 +1,33 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+textarea{
+   
+    height: 10vh;
+    width: 80%;
+    margin: 4rem;
+    padding: 1rem;
+    display: block;
+    border: solid #404040;
+    
+
+
+}
+
+#txt-output{
+
+
+    height: 25vh;
+    width:80%;
+    margin: 4rem;
+    padding: 1rem;
+    display: block;
+    border: solid #404040;
+}
+
