@@ -1,39 +1,48 @@
 var btnTranslate = document.querySelector("#btn-translate");
 var txtInput = document.querySelector("#txt-input");
 var txtOutput = document.querySelector("#txt-output");
-function clickEventListner(){
-    console.log("clicked")
-    console.log("Input=",txtInput.value);
+
+
+// ---------------------Modify Url------------------------------
+
+var mainUrl = "https://api.funtranslations.com/translate/minion.json";
     
-    txtOutput.innerText = txtInput.value;
+function getTranslationURL(){
+    return mainUrl +"?"+"text="+txtInput.value;
+}
+
+
+// -----------------------error function-----------------------------
+
+function errorHandler(error){
+    alert("There is a error, please try again",error);
+}
+
+
+
   
+// -----------------------------Calling api -------------------------
+
+
+function clickEventListner(){
+  
+     fetch(getTranslationURL())
+    .then (response => response.json())
+    .then (json =>{ 
+        var translatedText = json.contents.translated;  
+        console.log(json.contents.translated) 
+        txtOutput.innerText = translatedText;
+        }    )
+     
+  
+        .catch(errorHandler)
     
 }
 
 btnTranslate.addEventListener("click",clickEventListner);
 
 
-var text1 = "I am Ironman";
-var text2 = "I am Batman";
-var text3 = "I am Shakitiman";
 
-
-
-function urlAdder(text){
-
-  
-  return "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json"+"?"+"text="+text;
-}
-
-function doFetch(text){
-  fetch(urlAdder(text))
-  .then(response=>response.json())
-  .then(json=>console.log(json))
-}
-
-doFetch(text1);
-doFetch(text2);
-doFetch(text3);
 
 
 
