@@ -15,7 +15,7 @@ function getTranslationURL(){
 // -----------------------error function-----------------------------
 
 function errorHandler(error){
-    alert("There is a error, please try again",error);
+    alert("There is a error, please try again", error);
 }
 
 
@@ -30,7 +30,7 @@ function clickEventListner(){
     .then (response => response.json())
     .then (json =>{ 
         var translatedText = json.contents.translated;  
-        console.log(json.contents.translated) 
+        
         txtOutput.innerText = translatedText;
         }    )
      
